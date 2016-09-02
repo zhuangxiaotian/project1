@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="user" namespace="/user" extends="default">
+
+		<action name="UserList" class="cn.topdeep.projgroup.action.system.UserManage">
+			<result>/WEB-INF/jsp/admin/userlist.jsp</result>
+		</action>
+        <action name="UserEdit" class="cn.topdeep.projgroup.action.system.UserEdit">
+            <result name="input">/WEB-INF/jsp/admin/useredit.jsp</result>
+            <result type="redirectAction">UserList</result>
+        </action>
+        <action name="UserEdit_*" class="cn.topdeep.projgroup.action.system.UserEdit" method="{1}">
+            <result name="input">/WEB-INF/jsp/admin/useredit.jsp</result>
+            <result type="redirectAction">UserList</result>
+        </action>
+        
+		<action name="RoleList" class="cn.topdeep.projgroup.action.system.RoleManage">
+			<result>/WEB-INF/jsp/admin/rolelist.jsp</result>
+			<result name="input">/WEB-INF/jsp/admin/rolelist.jsp</result>
+		</action>
+        <action name="RoleEdit" class="cn.topdeep.projgroup.action.system.RoleEdit">
+			<result type="redirectAction">RoleList</result>
+            <result name="input">/WEB-INF/jsp/admin/roleedit.jsp</result>
+        </action>
+        <action name="RoleEdit_*" class="cn.topdeep.projgroup.action.system.RoleEdit" method="{1}">
+            <result name="input">/WEB-INF/jsp/admin/roleedit.jsp</result>
+            <result type="redirectAction">RoleList</result>
+        </action>
+        
+        <action name="LeaveList" class="cn.topdeep.projgroup.action.system.LeaveList">
+        	<result>/WEB-INF/jsp/admin/leavelist.jsp</result>
+        </action>
+        
+        <!-- Add actions here -->
+    </package>
+</struts>

@@ -1,0 +1,14 @@
+.svn
+.DS_Store
+*.pdb
+.classpath
+.project
+.settings
+build
+target
+META-INF
+.externalToolBuilders
+test-output
+test.properties
+application.properties
+log4j.properties

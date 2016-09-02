@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sitemap id="1" url="home/Index.action" name="首页" desc="" ismenu="true" func="0">
+	<sitemap id="2" url="" name="公司管理" desc="" ismenu="true" func="0">
+		<sitemap id="3" url="system/UserList.action" name="用户管理" desc="" ismenu="true" func="1" />
+		<sitemap id="4" url="system/UserEdit.action" name="添加用户" desc="" ismenu="true" func="1" />
+		<sitemap id="5" url="system/RoleList.action" name="角色管理" desc="" ismenu="true" func="2" />
+		<sitemap id="6" url="system/RoleEdit.action" name="添加角色" desc="" ismenu="true" func="2" />
+		<sitemap id="23" url="system/LeaveList.action" name="请假单" desc="" ismenu="true" func="2" />
+	</sitemap>
+	<sitemap id="24" ismenu="false" func="0" name="流程管理">
+		<sitemap id="25" url="process/DefineList.action" name="流程定义" desc="流程定义" ismenu="true" func="0" />
+	</sitemap>
+	<sitemap id="20" ismenu="false" func="0" name="个人事务">
+		<sitemap id="21" url="personal/LeaveRequest.action" name="请假" desc="请假" ismenu="true" func="0" />
+		<sitemap id="22" url="personal/PersonalList.action" name="请假" desc="请假" ismenu="true" func="0" />
+	</sitemap>
+	<sitemap id="7" url="" name="项目管理" desc="" ismenu="true" func="0">
+		<sitemap id="8" url="work/ProjList.action" name="项目管理" desc="" ismenu="true" func="0" />
+		<sitemap id="9" url="work/ProjEdit.action" name="添加项目" desc="" ismenu="true" func="0" />
+		<sitemap id="27" url="work/OrProjectList.action" name="Or项目管理" desc="" ismenu="true" func="0" />
+		<sitemap id="31" url="work/FuncProjectList!list.action" name="函数功能管理" desc="" ismenu="true" func="0"></sitemap>
+		<sitemap id="31" url="work/CodeBuildList.action" name="项目构建管理" desc="" ismenu="true" func="0"></sitemap>
+		<sitemap id="26" url="work/MyTaskListView.action" name="我的任务" desc="我的任务" ismenu="true" func="0" />
+<!--		<sitemap id="10" url="work/TaskList.action" name="任务管理" desc="" ismenu="true" func="0" />-->
+<!--		<sitemap id="11" url="work/TaskEdit.action" name="添加任务" desc="" ismenu="true" func="0" />-->
+		<sitemap id="12" url="work/WorkLogList.action" name="工作日志管理" desc="" ismenu="true" func="0" />
+		<sitemap id="13" url="work/WorkLogEdit.action" name="添加工作日志" desc="" ismenu="true" func="0" />
+		<sitemap id="14" url="work/WorkLogView.action" name="查看所有人的日志" desc="" ismenu="true" func="0" />
+		<sitemap id="30" url="work/PrevMonthWorkScoreList.action" name="查看上月工作评分" desc="" ismenu="true" func="0" />
+	</sitemap>
+</sitemap>

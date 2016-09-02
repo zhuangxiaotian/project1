@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+<entry key="PRIVILEGE_CONFIG_KEY">common.privilege.Privilege,cn.topdeep.projgroup.entity.Privilege</entry>
+<entry key="OPERATE_CONFIG_KEY">common.privilege.PrivilegeOperate</entry>
+</properties>

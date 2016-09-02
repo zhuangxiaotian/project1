@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+<entry key="dbtype">websphere6.1</entry>
+<!--<entry key="dbtype">tomcat6</entry>-->
+<entry key="bosera">jdbc/fund_wap</entry>
+</properties>

@@ -1,0 +1,69 @@
+/*-----------------------------位置--------------------------------------------*/
+
+.positionDown_3{position:relative;top:3px;}
+.margin{margin-top:10px;}
+
+
+/*-----------------------------文字显示样式--------------------------------------------*/
+
+.textStyleRed{color:#f00;}
+.blueText{color:blue;height:20px;line-height:20px;font-size:13px; vertical-align:top;}
+
+
+/*-----------------------------文字连接样式--------------------------------------------*/
+
+.textDecorationBlue{color:blue;text-decoration:underline;}
+a.textDecorationBlue:hover{color:#f60;}
+
+
+
+
+/*------------------对齐样式--------------------------------------------------*/
+
+.vertical_AlignTop{vertical-align:top;}
+.vertical_AlignMiddle{vertical-align:middle;}
+.textAlignCenter{text-align:center;}
+.textAlignCenterPadding10{text-align:center;padding:10px 0px;}
+.textAlignLeft{text-align:left;}
+.textAlignRigth{text-align:right;}
+.divContainerCenterAlign{width:1024px;margin:0 auto;}
+
+/*-------------------------------复选框单选框与文字对齐问题的研究与解决--------------------------------------------------------------------------*/
+
+
+.elementLeftFloatMoveL{float:left;margin-left:15px!important;margin-left:10px;}
+.emInTextPosition{font-style:normal; position:relative;left:5px;top:-2px;}
+.checkboxMarginStyle{margin:3px 5px 0 0;}
+
+/*font-style:normal;vertical-align:middle;margin-top:1px!important;margin-top:-2px;margin-bottom:1px;*/
+
+/*------------------------------------外边距-------------------------------------------*/
+.outPush_5px{margin:5px 0px;}
+.marginBottom{margin-bottom:5px;}
+.posswordContentMargin{margin:5px;}
+
+
+/*----------------------------------------------------------------------------------*/
+.borderTable{border:1px solid #ccc;padding:0px 0px 3px 6px;margin-bottom:5px;}
+.borderBox{border:1px solid #ccc;padding:3px 0px 3px 6px;margin-bottom:5px;}
+
+/*-------------------------------input输入框的样式-------------------------------------------------------*/
+
+
+
+
+
+/*-------------------------------按钮的样式-------------------------------------------------------*/
+
+
+/*-------------------------------多行文本框输入样式-------------------------------------------------------*/
+
+
+
+
+
+/*------------------------------------去除checkbox边线--------------------------------------------------*/
+
+.setInputCheckboxSideLineStyle_1{background:#fff;width:25px;height:25px;}
+.removeInputCheckboxSideLine{}
+

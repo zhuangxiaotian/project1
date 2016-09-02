@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="../../" default="buildAll" name="publishSourceFile" xmlns:artifact="urn:maven-artifact-ant">
+	<!-- 属性定义 -->
+	<property name="targetPath" value="/Users/niexin/project/source/projgroup"></property>
+	
+	<!-- 编绎经过处理的源码 -->
+	<target name="compileSrc">
+		<mkdir dir="${compileDestPath}"/>
+		<javac srcdir="${compileSrcPath}" destdir="${compileDestPath}" source="1.5" target="1.5" debug="on" >
+			<classpath >
+				<fileset dir="${compileLibPath}">
+				    <include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+	<!-- 拷贝资源文件 -->
+	<target name="copyResource">
+		<mkdir dir="${compileDestPath}"/>
+		<copy todir="${compileDestPath}" overwrite="true">
+			<fileset dir="${compileSrcPath}">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- 建立WEB发布包 -->
+	<target name="buildWar">
+		<mkdir dir="${targetPath}"/>
+		<!-- 编绎并拷贝WEB项目源码及资源 -->
+		<antcall target="compileSrc">
+			<param name="compileSrcPath" value="${targetPath}/src"/>
+			<param name="compileDestPath" value="${targetPath}/dist/WEB-INF/classes"/>
+			<param name="compileLibPath" value="${targetPath}/lib"/>
+		</antcall>
+		<antcall target="copyResource">
+			<param name="compileSrcPath" value="${targetPath}/src"/>
+			<param name="compileDestPath" value="${targetPath}/dist/WEB-INF/classes"/>
+		</antcall>
+		<copy todir="${targetPath}/dist" overwrite="true">
+			<fileset dir="${targetPath}/web"></fileset>
+		</copy>
+		<!-- 测试发布，删除不需要重新发布的库文件 -->
+		<move todir="${targetPath}/dist/WEB-INF/lib">
+			<fileset dir="${targetPath}/lib"></fileset>
+		</move>
+		 
+	</target>
+	
+	<target name="build">
+		<ant antfile="projgroup-work/publish/prepareSrcOnMac.xml" target="prepareAll" inheritall="yes"></ant>
+		<antcall target="buildWar">
+			<param name="prjName" value="projgroup"/>
+		</antcall>
+	</target>
+	
+	<target name="buildAll">
+		<antcall target="build"></antcall>
+	</target>
+
+
+</project>

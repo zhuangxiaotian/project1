@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+        <section name="OrMappingConfig" type="ORMapping.Builder.ORMappingConfigSection, ORMapping.Builder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </configSections>
+    <OrMappingConfig dbmapNamespace="cn.topdeep.jbpm.control.entity"
+        dbSchemaStartWith="T_" dbSchemaSep="_" dbMapSavePath="D:\Project\Office\java.common\trunk\jbpm4.control\src\cn\topdeep\jbpm\control\entity"
+        dbTypeClass="可空使用SqlTypes" buildFile="true" buildAssembly="false"
+        buildBusinesslogic="true" buildCacheLogic="false" buildFKdelete="true"
+        buildLogInterface="true" buildFKSelect="true" buildFKDeleteCheck="true"
+        buildEntityQueryIsPrivate="false" buildBusinessEntityQuery="true"
+        buildEntityInsertUseRef="false" buildSchemaUseDb="false" buildSchemaUseSchemaFile="true"
+        databaseIsMysql="false" schemaFileName="D:\Project\Office\projgroup\trunk\design\db\projgroup.config"
+        dbConnectionString="" aspxHideClassReplace="Financing.Template"
+        aspxBaseClassName="Financing.Template" aspxNameSpace="Financing"
+        aspxTemplateFile="D:\Project\Office\czbank\trunk\financing\Financing\Template.aspx"
+        aspxSavePath="D:\Project\Office\czbank\trunk\financing\Financing"
+        styleName="button2" aspxImportNameSpaces="" aspxBuildTables="" />
+</configuration>

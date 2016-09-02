@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="personal" namespace="/personal" extends="default">
+		<action name="LeaveRequest" class="cn.topdeep.projgroup.action.personal.LeaveRequest">
+			<result name="input">/WEB-INF/jsp/personal/leaverequest.jsp</result>
+			<result type="redirectAction">PersonalList</result>
+		</action>
+		<action name="PersonalList" class="cn.topdeep.projgroup.action.personal.PersonalList">
+			<result>/WEB-INF/jsp/personal/personallist.jsp</result>
+		</action>
+		<action name="DefaultTaskDeal" class="cn.topdeep.projgroup.action.personal.DefaultTaskDeal">
+		</action>
+    </package>
+</struts>

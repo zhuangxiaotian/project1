@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.topdeep.projgroup.entity.jiraview.ViewTopdeepBeanExMapper" >
+  <resultMap id="BaseResultMap" type="cn.topdeep.projgroup.entity.jiradb.ViewTopdeepBean" >
+    <constructor >
+      <arg column="stat_date" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="total_bean" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ifnull(user_name, 'total') user_name, '' stat_date,  sum(total_bean) total_bean
+  </sql>
+  <select id="selectSumByExample" resultMap="BaseResultMap" parameterType="cn.topdeep.projgroup.entity.jiradb.ViewTopdeepBeanExample" >
+    select
+    <include refid="Base_Column_List" />
+    from view_topdeep_bean
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    group by user_name with rollup
+  </select>
+</mapper>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<bean id="dataVisit"
+		class="common.dbvisit.sqlserver.SqlServerDataVisit">
+		<property name="connectionString"
+			value="jndi:tomcat6:jdbc/egroup">
+		</property>
+	</bean>
+	
+	<bean id="loginUser" class="cn.topdeep.projgroup.entity.data.LoginUser" scope="session">
+		<aop:scoped-proxy/>
+	</bean>
+	
+	<bean id="config" class="cn.topdeep.projgroup.biz.Config"></bean>
+	<bean id="urlManage" class="cn.topdeep.projgroup.biz.UrlManage"></bean>
+	<bean id="projgroupDao" class="cn.topdeep.projgroup.dao.ProjgroupDao">
+		<property name="dataVisit" ref="dataVisit"></property>
+	</bean>
+	<bean id="baseBiz" class="cn.topdeep.projgroup.biz.BaseBiz">
+		<property name="projgroupDao" ref="projgroupDao"></property>
+		<property name="urlManage" ref="urlManage"></property>
+		<property name="loginUser" ref="loginUser"></property>
+	</bean>
+	<bean id="personalBiz" class="cn.topdeep.projgroup.biz.PersonalBiz" parent="baseBiz"></bean>
+	<bean id="systemDao" class="cn.topdeep.projgroup.dao.SystemDao" parent="projgroupDao"></bean>
+	<bean id="projectDao" class="cn.topdeep.projgroup.dao.ProjectDao" parent="projgroupDao"></bean>
+	
+	<bean id="funcProjectDao" class="cn.topdeep.projgroup.dao.FuncProjectDao" parent="projgroupDao"></bean>
+ 	
+	
+	<bean id="systemBiz" class="cn.topdeep.projgroup.biz.SystemBiz" parent="baseBiz">
+		<property name="systemDao" ref="systemDao"></property>
+	</bean>
+	<bean id="projectBiz" class="cn.topdeep.projgroup.biz.ProjectBiz"  parent="baseBiz">
+		<property name="projectDao" ref="projectDao"></property>
+	</bean>
+	
+ 	<bean id="funcProjectBiz" class="cn.topdeep.projgroup.biz.FuncProjectBiz"  parent="baseBiz">
+		<property name="funcProjectDao" ref="funcProjectDao"></property>
+	</bean>
+	
+ 	
+	 
+<!-- 	<bean id="jbpmConfiguration" class="org.jbpm.pvm.internal.cfg.SpringConfiguration"> -->
+<!--         <constructor-arg value="jbpm.cfg.xml" /> -->
+<!--     </bean> -->
+<!-- 	<bean id="processEngine" factory-bean="jbpmConfiguration" factory-method="buildProcessEngine" /> -->
+<!-- 	<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" /> -->
+<!-- 	<bean id="executionService" factory-bean="processEngine" factory-method="getExecutionService" /> -->
+<!-- 	<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"></bean> -->
+<!-- 	<bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"></bean> -->
+<!--	<bean id="taskBiz" class="cn.topdeep.projgroup.biz.TaskBiz" parent="baseBiz">-->
+<!--		<property name="taskService" ref="taskService"></property>-->
+<!--		<property name="executionService" ref="executionService"></property>-->
+<!--	</bean>-->
+<!--	<bean id="taskEventLister" class="cn.topdeep.projgroup.biz.TaskEventLister"></bean>-->
+<!-- 	<bean id="leaveEventListener" class="cn.topdeep.projgroup.action.personal.LeaveEventListener"> -->
+<!-- 		<property name="personalBiz" ref="personalBiz"></property> -->
+<!-- 		<property name="taskService" ref="taskService"></property> -->
+<!-- 	</bean> -->
+	
+</beans>

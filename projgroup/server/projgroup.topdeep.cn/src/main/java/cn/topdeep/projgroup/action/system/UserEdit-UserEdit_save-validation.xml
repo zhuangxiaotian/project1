@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="user.loginName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>请输入登录名称</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">16</param>
+			<message>登录名称必须在4到16个字之间</message>
+		</field-validator>
+	</field>
+	<field name="user.loginPass">
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">16</param>
+			<message>登录密码必须在4到16个字之间</message>
+		</field-validator>
+	</field>	
+	<field name="user.realName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>请输入真实姓名</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">16</param>
+			<message>真实姓名必须在2到16个字之间</message>
+		</field-validator>
+	</field>
+	<field name="user.userEmail">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>请输入Email地址</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>请输入有效的Email地址</message>
+		</field-validator>
+	</field>
+	<field name="user.userMobile">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>请输入移动电话号码</message>
+		</field-validator>
+	</field>
+	<field name="user.userMsn">
+		<field-validator type="email">
+			<message>请输入有效的Msn帐号</message>
+		</field-validator>
+	</field>
+	<field name="user.userQq">
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\d*)]]></param>
+			<message>请输入有效的QQ帐号</message>
+		</field-validator>
+	</field>	
+</validators>
+	

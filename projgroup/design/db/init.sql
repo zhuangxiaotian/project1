@@ -1,0 +1,33 @@
+INSERT INTO [T_USER]
+           ([LAST_LOGIN_ADDRESS]
+           ,[LAST_LOGIN_TIME]
+           ,[LOGIN_COUNT]
+           ,[LOGIN_NAME]
+           ,[LOGIN_PASS]
+           ,[REAL_NAME]
+           ,[USER_EMAIL]
+           ,[USER_MEMO]
+           ,[USER_MOBILE]
+           ,[USER_MSN]
+           ,[USER_PRIVILEGES]
+           ,[USER_QQ]
+           ,[USER_ROLES]
+           ,[USER_STATE]
+           ,[USER_TELEPHONE])
+     VALUES
+           (null
+           ,null
+           ,0
+           ,'admin'
+           ,''
+           ,'admin'
+           ,''
+           ,''
+           ,''
+           ,''
+           ,'263,519,775'
+           ,''
+           ,''
+           ,1
+           ,'')
+go

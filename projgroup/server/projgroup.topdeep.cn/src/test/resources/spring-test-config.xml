@@ -1,0 +1,69 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd
+      http://www.springframework.org/schema/util 
+      http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+	default-lazy-init="false">
+
+	<description>import applicationContext file list</description>
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="false" />
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+	</bean>
+	<context:property-placeholder location="classpath:test.properties" />
+	<util:properties id="application" location="classpath:application.properties"></util:properties>
+	<util:properties id="test" location="classpath:test.properties"></util:properties>
+	<context:component-scan base-package="cn.topdeep.projgroup.test" />
+	<bean id="applicationContext" class="cn.topdeep.projgroup.util.ApplicationContextHelper"></bean>
+
+	<!-- <bean id="weChatSession" class="topdeep.wechat.mg.entity.WeChatSession" scope="session"></bean> -->
+	
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="session">
+                    <bean class="org.springframework.web.context.request.SessionScope" />
+                </entry>
+                <entry key="request">
+                    <bean class="org.springframework.web.context.request.RequestScope" />
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+	<!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>${db.connectionString}</value>
+		</property>
+	</bean> -->
+	
+<!--  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"        
+        destroy-method="close">        
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />       
+	    <property name="url" value="jdbc:mysql://192.168.0.33:3306/oa_develop" />       
+	    <property name="username" value="mysql_develop" />       
+	    <property name="password" value="mysql_develop" />       
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+	</bean> -->	
+	<!-- 
+	<bean id="baseDao" class="topdeep.wechat.dao.BaseDao"> 
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/> 
+	</bean>
+	 -->
+		 <!-- 系统缓存 -->
+	
+</beans>

@@ -1,0 +1,22 @@
+*{
+	-moz-box-sizing: content-box;/* content-box */
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+/* CSS Document */
+
+html,body{ 
+	height:100%; 
+	overflow:hidden;
+}
+
+body{ 
+	font-size:12px;
+	position:relative;
+}
+
+a,img{border:none;}

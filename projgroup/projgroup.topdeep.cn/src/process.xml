@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="process" namespace="/process" extends="default">
+		<action name="DefineList" class="cn.topdeep.projgroup.action.process.DefineList">
+			<result>/WEB-INF/jsp/process/definelist.jsp</result>
+		</action>
+    </package>
+</struts>

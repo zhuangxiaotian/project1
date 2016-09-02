@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="proj" namespace="/work" extends="default">
+
+		<action name="ProjList" class="cn.topdeep.projgroup.action.work.ProjManage">
+			<result>/WEB-INF/jsp/project/projlist.jsp</result>
+		</action>
+		
+        <action name="ProjEdit" class="cn.topdeep.projgroup.action.work.ProjEdit">
+            <result name="input">/WEB-INF/jsp/project/projedit.jsp</result>
+        </action>
+        
+		<action name="TaskList" class="cn.topdeep.projgroup.action.work.TaskManage">
+			<result name="success">/WEB-INF/jsp/project/tasklist.jsp</result>
+			<result name="input">/WEB-INF/jsp/project/tasklist.jsp</result>
+			<result name="success1">/WEB-INF/jsp/project/inputworktime.jsp</result>
+			<result name="input1">/WEB-INF/jsp/project/inputsonsworktime.jsp</result>
+		</action>
+		
+		<action name="TaskList_*" class="cn.topdeep.projgroup.action.work.TaskManage" method="{1}">
+		
+		    <result name="input" type="redirectAction">
+<!--    			<param name="namespace">/</param>-->
+    			<param name="actionName">TaskList</param>
+   			<param name="projId">${projId}</param>
+    		</result>
+		
+			<result>/WEB-INF/jsp/project/tasklistall.jsp</result>
+			<result name="success1">/WEB-INF/jsp/project/inputworktime.jsp</result>
+		</action>
+		
+		<action name="TaskList_gameover" class="cn.topdeep.projgroup.action.work.TaskManage" method="gameover">
+			<result name="success">/WEB-INF/jsp/project/inputworktime.jsp</result>
+			<result name="input">/WEB-INF/jsp/project/inputsonsworktime.jsp</result>
+		</action>
+		
+		<action name="TaskEdit" class="cn.topdeep.projgroup.action.work.TaskEdit">
+			<result name="input">/WEB-INF/jsp/project/taskedit.jsp</result>
+			<result type="redirectAction">
+				<param name="namespace">proj</param>
+				<param name="actionName">TaskList</param>
+				<param name="projId">${projId}</param>
+			</result>
+		</action>
+		<action name="TaskListView" class="cn.topdeep.projgroup.action.work.TaskGanttView">
+			<result>/WEB-INF/jsp/project/taskganttview.jsp</result>
+		</action>
+		<action name="MyTaskListView" class="cn.topdeep.projgroup.action.work.MyTaskGanttView">
+			<result>/WEB-INF/jsp/project/taskganttview.jsp</result>
+		</action>
+		
+		<action name="WorkLogList" class="cn.topdeep.projgroup.action.work.WorkLogManage">
+			<result>/WEB-INF/jsp/project/workloglist.jsp</result>
+		</action>
+		<action name="WorkLogView" class="cn.topdeep.projgroup.action.work.WorkLogView">
+			<result>/WEB-INF/jsp/project/workloglistall.jsp</result>
+		</action>
+        <action name="WorkLogEdit" class="cn.topdeep.projgroup.action.work.WorkLogEdit">
+        	<result name="input">/WEB-INF/jsp/project/worklogedit.jsp</result>
+        	<result name="success">/WEB-INF/jsp/project/worklogview.jsp</result>
+        </action>
+        
+        <action name="WorkLogEdit_*" class="cn.topdeep.projgroup.action.work.WorkLogEdit" method="{1}">
+        	<result type="redirectAction">WorkLogList</result>
+        	<result name="input">/WEB-INF/jsp/project/worklogedit.jsp</result>
+        </action>
+       
+       <action name="OrProjectList" class="cn.topdeep.projgroup.action.work.OrProjectList">
+       		<result>/WEB-INF/jsp/project/orprojlist.jsp</result>
+       </action>
+       
+       <action name="OrProjectEdit" class="cn.topdeep.projgroup.action.work.OrProjectEdit">
+       		<result name="input">/WEB-INF/jsp/project/orprojedit.jsp</result>
+       		<result type="redirectAction">OrProjectEdit</result>
+       </action>
+        
+        <action name="Test" class="cn.topdeep.projgroup.action.TestAction">
+        	<result>/WEB-INF/jsp/project/test.jsp</result>
+        </action>
+        
+        <!-- Add actions here -->
+    </package>
+</struts>

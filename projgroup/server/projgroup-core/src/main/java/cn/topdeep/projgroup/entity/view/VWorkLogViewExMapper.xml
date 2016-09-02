@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.topdeep.projgroup.entity.view.VWorkLogViewExMapper" >
+  <resultMap id="ListResultMap" type="cn.topdeep.projgroup.entity.view.VWorkLogViewStat" >
+    <constructor >
+      <arg column="real_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="work_count" jdbcType="DECIMAL" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+
+  <resultMap id="DetailResultMap" type="cn.topdeep.projgroup.entity.db.VWorkLogView" >  
+     <constructor >
+      <arg column="real_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="work_day" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="modify_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <select id="selectNineStatisticalList" resultMap="ListResultMap" parameterType="cn.topdeep.projgroup.entity.view.VWorkLogViewExExample" >
+	SELECT real_name, COUNT( * ) work_count
+	FROM V_WORK_LOG_VIEW
+	WHERE DATE_FORMAT( WORK_DAY, '%Y%m' ) = ${workDayMonth}
+	AND DATE_ADD( WORK_DAY, INTERVAL 23 HOUR ) > modify_time
+	AND modify_time >= DATE_ADD( WORK_DAY, INTERVAL 21 HOUR )
+	GROUP BY real_name
+  </select>
+  <select id="selectNineStatisticalDetail" resultMap="DetailResultMap" parameterType="cn.topdeep.projgroup.entity.view.VWorkLogViewExExample" >
+   <![CDATA[ SELECT real_name, work_day, modify_time
+    FROM V_WORK_LOG_VIEW
+    WHERE DATE_FORMAT( WORK_DAY, '%Y%m' ) = ${workDayMonth}
+    AND DATE_ADD( WORK_DAY, INTERVAL 23 HOUR ) > modify_time
+    AND modify_time >= DATE_ADD( WORK_DAY, INTERVAL 21 HOUR )]]>
+  </select>
+    <select id="selectEvelenStatisticalList" resultMap="ListResultMap" parameterType="cn.topdeep.projgroup.entity.view.VWorkLogViewExExample" >
+	<![CDATA[SELECT real_name, COUNT( * ) work_count
+	FROM V_WORK_LOG_VIEW
+	WHERE DATE_FORMAT( WORK_DAY, '%Y%m' ) = ${workDayMonth}
+	AND DATE_ADD( WORK_DAY, INTERVAL 29 HOUR ) > modify_time
+	AND modify_time >= DATE_ADD( WORK_DAY, INTERVAL 23 HOUR )
+	GROUP BY real_name]]>
+  </select>
+  <select id="selectEvelenStatisticalDetail"  parameterType="cn.topdeep.projgroup.entity.view.VWorkLogViewExExample" resultMap="DetailResultMap" >
+   <![CDATA[ SELECT real_name, work_day, modify_time
+	FROM V_WORK_LOG_VIEW
+	WHERE DATE_FORMAT( WORK_DAY, '%Y%m' ) = ${workDayMonth}
+	AND DATE_ADD( WORK_DAY, INTERVAL 29 HOUR ) > modify_time
+	AND modify_time >= DATE_ADD( WORK_DAY, INTERVAL 23 HOUR )]]>
+  </select>
+  
+</mapper>

@@ -1,0 +1,56 @@
+/* put your css customizations here */
+
+
+/*
+There are two rows of dropdowns on the edit_bugs.aspx page.  You can
+use these styles to hide them if you aren't using them..
+*/
+
+/*
+#row1 {display:none;}
+#row2 {display:none;}
+*/
+
+
+/*
+Same as above, but here you can target more specifically.   I use
+these to remove fields I'm not using.
+*/
+
+/*
+#project_label {display:none;}
+#current_project {display:none;}
+#change_project_label {display:none;}
+#project {display:none;}
+
+#category_label {display:none;}
+#category {display:none;}
+
+#priority_label {display:none;}
+#priority {display:none;}
+
+#status_label {display:none;}
+#status {display:none;}
+
+#assigned_to_label {display:none;}
+#assigned_to_username {display:none;}
+#reassign_label {display:none;}
+#assigned_to {display:none;}
+*/
+
+
+
+/*
+The custom fields have unique ids too.   Here I'm moving the custom
+fields away from where they normall show.
+*/
+
+/*
+#foobar_label {font-size: 12pt; color: red; position: relative; top: 32px;}
+#foobar {font-size: 12pt; color: orange;     position: relative; top: 32px;}
+
+#foobar2_label {font-size: 12pt; color: red; position: relative; top: -32px;}
+#foobar2 {font-size: 12pt; color: green;     position: relative; top: -32px;}
+*/
+
+

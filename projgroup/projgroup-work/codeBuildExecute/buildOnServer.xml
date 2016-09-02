@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build" name="build" xmlns:artifact="urn:maven-artifact-ant">
+	<!-- 属性定义 -->
+	<property name="command" value=""></property>
+	<property name="workDir" value="${basedir}/work"></property>
+	<property name="targetZipFile" value="${basedir}/work.zip"></property>
+	<target name="codeGen">
+		<delete dir="${workDir}"></delete>
+		<echo message="execute start"></echo>
+		<echo message="command:${command}"></echo>
+		<exec command="${command}">
+		</exec>
+		<echo message="execute end"></echo>
+	</target>
+	
+	<target name="build" depends="codeGen">
+		<echo message="targetZipFile:${targetZipFile}"></echo>
+		<delete file="${targetZipFile}"></delete>
+		<zip destfile="${targetZipFile}">
+			<fileset dir="${workDir}"></fileset>
+		</zip>
+	</target>
+</project>

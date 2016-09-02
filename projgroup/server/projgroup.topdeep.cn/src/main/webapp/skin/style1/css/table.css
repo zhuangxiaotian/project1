@@ -1,0 +1,189 @@
+/*------------------------------------布局式表格样式应用在表格中全部是input或select 非 checkbox(不显示表格)------------------- */
+.tablestyle4{ 
+	width:99%;
+	margin:0 auto;
+	border-collapse:collapse; 
+	font-size:12px;
+}
+.tablestyle4 td, .tablestyle4 th{ 
+	padding:5px;
+	vertical-align:text-top;
+}
+.tablestyle4 .tdRight{
+  text-align:right;
+}
+.tablestyle4 .tdCenter{
+  text-align:center;
+}
+.tablestyle4 th{ 
+	background:#D8DCDF; 
+	border-right:1px solid #F5F6F8; 
+	text-align:center; 
+	font-weight:bold; 
+	border-top:1px solid #B2B3B7;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.tablestyle4 .lighttr td{ 
+	background:#ECECEE;
+}
+.tablestyle4 td.verticalAlign{
+	vertical-align:bottom;
+	height:22px;
+	line-height:22px;
+}
+.tablestyle4 td input,.tablestyle4 td select{
+	width:180px;
+	height:20px;
+	background:#fff;
+}
+.tablestyle4 td textarea{
+	width:300px;
+	height:100px;
+}
+
+
+/*------------------------------------表格中内容默认居中对齐 单选框可用------------------- */
+
+.tablestyle3{ 
+	width:99%;
+	margin:0 auto;
+	border-collapse:collapse; 
+	font-size:12px;
+}
+.tablestyle3 td, .tablestyle3 th{ 
+	padding:5px;
+	vertical-align:text-top;
+}
+.tablestyle3 tbody{
+  text-align:center;
+}
+.tablestyle3 .tdRight{
+  text-align:right;
+}
+.tablestyle3 .tdCenter{
+  text-align:center;
+}
+.tablestyle3 thead{ 
+	background:#D8DCDF; 
+	border-right:1px solid #F5F6F8; 
+	text-align:center; 
+	font-weight:bold; 
+	border-top:1px solid #B2B3B7;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color:#1f6cb4;
+}
+.tablestyle3 .lighttr td{ 
+	background:#ECECEE;
+}
+.tablestyle3 td.verticalAlign{
+	vertical-align:bottom;
+	height:22px;
+	line-height:22px;
+}
+.tablestyle3 td select{
+	width:180px;
+	height:20px;
+	background:#fff;
+}
+/*------------------------------------表格中内容左中右对齐默认左对齐(不显示表格)（无thead）------------------- */
+.tablestyle2{ 
+	width:99%;
+	margin:0 auto;
+	border-collapse:collapse; 
+	font-size:12px;
+}
+.tablestyle2 td, .tablestyle2 th{ 
+	padding:5px;
+	vertical-align:text-top;
+}
+.tablestyle2 .tdRight{
+  text-align:right;
+}
+.tablestyle2 .tdCenter{
+  text-align:center;
+}
+.tablestyle2 th{ 
+	border-right:1px solid #F5F6F8; 
+	text-align:center; 
+	font-weight:bold; 
+	border-top:1px solid #B2B3B7;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.tablestyle2 .lighttr td{ 
+	background:#ECECEE;
+}
+.tablestyle2 td.verticalAlign{
+	vertical-align:bottom;
+	height:22px;
+	line-height:22px;
+}
+.tablestyle2 td .input,.tablestyle2 td select{
+	width:180px;
+	height:20px;
+	background:#fff;
+}
+/*---------------------------------表格中内容居中对齐(显示表格)--------------------------------------------*/
+.tablestyle1{ 
+	width:99%; 
+	margin:0 auto;
+	border-collapse:collapse; 
+	font-size:14px; 
+	border:1px solid #D8DCDF;
+}
+.tablestyle1 thead{
+	background:#D8DCDF; 
+	border-right:1px solid #F5F6F8; 
+	text-align:center; 
+	font-weight:bold; 
+	border-top:1px solid #B2B3B7;
+	padding:5px 0px;
+	color:#1f6cb4;
+} 
+.tablestyle1 tbody{
+	border:1px solid #D8DCDF;
+}
+.tablestyle1 td, .tablestyle1 th{ 
+	padding:5px;
+}
+.tablestyle1 td{
+	border:1px solid #D8DCDF;
+	text-align:center; 
+}
+.tablestyle1 th{ 
+	background:#D8DCDF; 
+	color:#1f6cb4;
+}
+.tablestyle1 .lighttr td{ 
+	background:#ECECEE;
+}
+
+/*---------------------------------编辑类型表格中内容垂直顶对齐，左对齐 --------------------------------------------*/
+
+.edittable{ 
+	width:99%;
+	margin:0 auto; 
+	border-collapse:collapse; 
+	font-size:12px;
+}
+.edittable td, .edittable th{ 
+	padding:5px;
+	vertical-align:text-top;
+}
+.edittable td{
+	text-align:left; 
+}
+.edittable th{
+	text-align: right;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	vertical-align: top;
+	font-weight:normal; 
+}
+.edittable .lighttr td{ 
+	background:#ECECEE;
+}
+
+

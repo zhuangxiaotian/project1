@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simpletd"/>
+    <constant name="struts.objectFactory.spring.autoWire" value="name"></constant>
+ 
+    <package name="default" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="httpContext" class="cn.topdeep.issue.action.interceptor.HttpContextInterceptor"></interceptor>
+			<interceptor name="authz" class="cn.topdeep.issue.action.interceptor.AuthzInterceptor"></interceptor>
+			<interceptor-stack name="defaultInterceptor1">
+                <interceptor-ref name="exception">
+                	<param name="logEnabled">true</param>
+                	<param name="logCategory">cn.topdeep.issue</param>
+                </interceptor-ref>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+<!--                <interceptor-ref name="checkbox"/>-->
+				<interceptor-ref name="httpContext"></interceptor-ref>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="params">
+                  <param name="ordered">true</param>
+                  <param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+				<interceptor-ref name="authz"></interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                	<param name="validateAnnotatedMethodOnly">true</param>
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+			</interceptor-stack>
+			<interceptor-stack name="defaultInterceptor2">
+				<interceptor-ref name="defaultStack">
+					<param name="params.ordered">true</param>
+				</interceptor-ref>
+				<interceptor-ref name="httpContext"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+    	
+    	<default-interceptor-ref name="defaultInterceptor1">
+    	
+    	</default-interceptor-ref>
+ 	
+ 		<global-results>
+	        <result name="login" type="redirect">/admin/Logon.jsp</result>
+	        <result name="noprivileges" type="redirectAction">Login.action</result>
+        </global-results>
+ 	
+    	<action name="RoleList" class="cn.topdeep.issue.action.RoleList" >
+    		<result name="success">/WEB-INF/jsp/rolelist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/rolelist.jsp</result>
+    	</action>
+    	
+    	<action name="RoleEdit" class="cn.topdeep.issue.action.RoleEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">RoleList</param>
+<!--    			<param name="roleId">${roleId}</param>-->
+    		</result>
+    		<result name="input">/WEB-INF/jsp/roleedit.jsp</result>
+    	</action>
+    	
+    	<action name="UserList" class="cn.topdeep.issue.action.UserList" >
+    		<result name="success">/WEB-INF/jsp/userlist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/userlist.jsp</result>
+    	</action>
+    	
+    	<action name="UserEdit" class="cn.topdeep.issue.action.UserEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">UserList</param>
+<!--    			<param name="issueUserId">${issueUserId}</param>-->
+    		</result>
+    		<result name="input">/WEB-INF/jsp/useredit.jsp</result>
+    	</action>
+    	
+    	<action name="ProjList" class="cn.topdeep.issue.action.ProjList" >
+    		<result name="success">/WEB-INF/jsp/projlist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/projlist.jsp</result>
+    	</action>
+    		
+    	<action name="ProjEdit" class="cn.topdeep.issue.action.ProjEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">ProjList</param>
+<!--    			<param name="issueProjectId">${issueProjectId}</param>-->
+    		</result>
+    		<result name="input">/WEB-INF/jsp/projedit.jsp</result>
+    	</action>
+    	
+    	<action name="StatusList" class="cn.topdeep.issue.action.StatusList" >
+    		<result name="success">/WEB-INF/jsp/statuslist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/statuslist.jsp</result>
+    	</action>
+    	
+    	<action name="StatusEdit" class="cn.topdeep.issue.action.StatusEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">StatusList</param>
+<!--    			<param name="statusId">${statusId}</param>-->
+    		</result>
+    		<result name="input">/WEB-INF/jsp/statusedit.jsp</result>
+    	</action>
+    	
+    	<action name="PrioritlesList" class="cn.topdeep.issue.action.PrioritlesList" >
+    		<result name="success">/WEB-INF/jsp/prioritleslist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/prioritleslist.jsp</result>
+    	</action>
+    	
+    	<action name="PrioritlesEdit" class="cn.topdeep.issue.action.PrioritlesEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">PrioritlesList</param>
+<!--    			<param name="prioritiesId">${prioritiesId}</param>-->
+    		</result>
+    		<result name="input">/WEB-INF/jsp/prioritlesedit.jsp</result>
+    	</action>
+    	
+    	
+    	<action name="ProjectModuleList" class="cn.topdeep.issue.action.ProjectModuleList" >
+    		<result name="success">/WEB-INF/jsp/projectmodulelist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/projectmodulelist.jsp</result>
+    	</action>
+    	
+    	<action name="ProjectModuleEdit" class="cn.topdeep.issue.action.ProjectModuleEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">ProjectModuleList</param>
+    			<param name="issueProjectId">${issueProjectId}</param>
+    		</result>
+    		<result name="input">/WEB-INF/jsp/projectmoduleedit.jsp</result>
+    	</action>
+    	
+    	<action name="StateChangeDefineList" class="cn.topdeep.issue.action.StateChangeDefineList" >
+    		<result name="success">/WEB-INF/jsp/statechangedefinelist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/statechangedefinelist.jsp</result>
+    	</action>
+    	
+    	<action name="StateChangeDefineEdit" class="cn.topdeep.issue.action.StateChangeDefineEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">StateChangeDefineList</param>
+<!--   不需要传值. 			<param name="currentStatusId">${currentStatusId}</param>-->
+    		</result>
+    		<result name="input">/WEB-INF/jsp/statechangedefineedit.jsp</result>
+    	</action>
+    	
+    	<action name="ProjectUserPrivilegesList" class="cn.topdeep.issue.action.ProjectUserPrivilegesList" >
+    		<result name="success">/WEB-INF/jsp/projectuserprivilegeslist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/projectuserprivilegeslist.jsp</result>
+    	</action>
+    	
+    	<action name="ProjectUserPrivilegesEdit" class="cn.topdeep.issue.action.ProjectUserPrivilegesEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">ProjectUserPrivilegesList</param>
+    			<param name="issueProjectId">${issueProjectId}</param>
+    		</result>
+    		<result name="input">/WEB-INF/jsp/projectuserprivilegesedit.jsp</result>
+    	</action>
+    	
+    	<action name="IssueList" class="cn.topdeep.issue.action.IssueList" >
+    		<result name="success">/WEB-INF/jsp/issuelist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/issuelist.jsp</result>
+    	</action>
+    	
+    	<action name="IssueEdit" class="cn.topdeep.issue.action.IssueEdit">
+    		<result name="success">/WEB-INF/jsp/issueedit.jsp</result>
+    		<result name="input">/WEB-INF/jsp/issueedit.jsp</result>
+<!--			<result name="input">-->
+<!--    			<param name="namespace">/</param>-->
+<!--    			<param name="actionName">IssueEdit</param>-->
+<!--    			<param name="issueId">${issueId}</param>-->
+<!--    		</result>-->
+    	</action>
+    	
+    	<action name="IssueAdd" class="cn.topdeep.issue.action.IssueAdd">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">IssueList</param>
+    		</result>
+    		<result name="input">/WEB-INF/jsp/issueadd.jsp</result>
+    	</action>
+    	
+    	<action name="Login" class="cn.topdeep.issue.action.Login">
+    		<result name="input">/WEB-INF/jsp/login.jsp</result>
+    		<result name="SELECT">/WEB-INF/jsp/selectloginproject.jsp</result>
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">IssueList</param>
+    		</result>
+    	</action>
+    	
+    	<action name="SelectLoginProject" class="cn.topdeep.issue.action.Login" method="selectloginproject">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">IssueList</param>
+    		</result>
+    	</action>
+    	
+    	
+    	
+    	<action name="Logout" class="cn.topdeep.issue.action.Login" method="logout">
+    		<result name="input">/WEB-INF/jsp/login.jsp</result>
+    		<result >/WEB-INF/jsp/login.jsp</result>
+    	</action>
+    	
+    	<action name="Privilege" class="cn.topdeep.issue.action.Privilege">
+    		<result name="success">/WEB-INF/jsp/privilege.jsp</result>
+    		<result name="input">/WEB-INF/jsp/privilege.jsp</result>
+    	</action>
+    	
+    	<action name="UpLoad" class="cn.topdeep.issue.action.UpLoad">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">IssueEdit</param>
+    			<param name="issueId">${issueId}</param>
+    		</result>
+    		<result name="input">/WEB-INF/jsp/upload.jsp</result>
+    	</action>
+    	
+    	<action name="Search" class="cn.topdeep.issue.action.Search">
+    		<result name="success">/WEB-INF/jsp/search.jsp</result>
+    		<result name="input">/WEB-INF/jsp/search.jsp</result>
+    	</action>
+    	
+    	<action name="QueryList" class="cn.topdeep.issue.action.QueryList">
+    		<result name="success">/WEB-INF/jsp/querylist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/querylist.jsp</result>
+    	</action>
+    	
+    	<action name="QueryEdit" class="cn.topdeep.issue.action.QueryEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">QueryList</param>
+<!--    			<param name="issueQueryId">${issueQueryId}</param>-->
+    		</result>
+    		<result name="input">/WEB-INF/jsp/queryedit.jsp</result>
+    	</action>
+    	
+    	<action name="RoleDefaultQueryEdit" class="cn.topdeep.issue.action.RoleDefaultQueryEdit">
+    		<result type="redirectAction">
+    			<param name="namespace">/</param>
+    			<param name="actionName">RoleDefaultQueryList</param>
+    			<param name="issueProjectId">${issueProjectId}</param>
+    		</result>
+    		<result name="input">/WEB-INF/jsp/roledefaultqueryedit.jsp</result>
+    	</action>
+    	
+    	<action name="RoleDefaultQueryList" class="cn.topdeep.issue.action.RoleDefaultQueryList">
+    		<result name="success">/WEB-INF/jsp/roledefaultquerylist.jsp</result>
+    		<result name="input">/WEB-INF/jsp/roledefaultquerylist.jsp</result>
+    	</action>
+    	
+    	<action name="IssueImport" class="cn.topdeep.issue.action.IssueImport">
+    		<result name="success">/WEB-INF/jsp/issueimport.jsp</result>
+    		<result name="input">/WEB-INF/jsp/issueimport.jsp</result>
+    	</action>
+    	
+    	<action name="UserPasswordUpdata" class="cn.topdeep.issue.action.UserPasswordUpdata">
+    		<result name="success">/WEB-INF/jsp/userpasswordupdata.jsp</result>
+    		<result name="input">/WEB-INF/jsp/userpasswordupdata.jsp</result>
+    	</action>
+    	
+    	
+    </package>
+  </struts>
+  

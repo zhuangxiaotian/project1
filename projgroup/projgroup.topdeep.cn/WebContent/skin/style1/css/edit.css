@@ -1,0 +1,113 @@
+/*------------------------------------初始化---------------------------------------------------------------*/
+
+
+
+/*-------------------------------按钮的样式-------------------------------------------------------*/
+.buttonStyle_1{
+	height:25px;
+	line-height:25px;
+	cursor:pointer;
+	margin:5px 2px;
+	background:none;
+	color:blue;
+}
+.inputBottomStyle1{
+	height:25px;
+	line-height:25px;
+	cursor:pointer;
+	margin:5px 2px;
+	background:none;
+	color:blue;
+}
+.inputBottomStyle2{
+	height:20px;
+	line-height:20px;
+	margin:0px 0px 5px 5px;
+	background:none;
+	color:blue;
+	cursor:pointer;
+}
+.inputBottomPrevious{
+	height:23px;
+	line-height:23px;
+	background:none;
+	border:none;
+	text-decoration:underline;
+	color:#00459C;cursor:pointer;
+}
+.inputBottomNext{
+	height:23px;
+	line-height:23px;
+	background:none;
+	border:none; 
+	text-decoration:underline;
+	color:#00459C;
+	cursor:pointer;
+}
+
+
+.bottomSaveAndClosed{
+	height:22px;
+	line-height:22px;
+	cursor:pointer;
+	margin:5px 0px 0px 2px;
+}
+
+
+/*-------------------------------下拉列表样式-------------------------------------------------------*/
+/*地区选择下拉列表*/
+.selectWid{
+	width:150%;
+	height:20px;
+	background:#fff;
+	margin:5px 0px;
+}
+
+/*-------------------------------input样式-------------------------------------------------------*/
+/*名称输入框样式*/
+
+.inputWid{
+	width:120px;
+	height:20px;
+	background:none;
+}
+.inputWid_100{
+	width:85px;
+	height:20px;
+	margin:5px 0px;
+	background:none;border:
+}
+.inputWidStyle1{
+	width:95%;
+	height:20px!important;
+	height:16px;
+	margin-bottom:2px;
+	background:none;
+}
+.inputWidStyle_180{
+	width:95%;
+	height:20px!important;
+	height:16px;
+	margin-bottom:2px;
+	background:none;
+}
+
+
+
+
+
+
+
+/*-------------------------------多行文本框输入样式-------------------------------------------------------*/
+
+.textarea{
+	width:200px;height:100px;
+}
+.textarea1{
+	width:500px;height:100px;
+}
+.textarea2{
+	width:500px;height:40px;
+}
+
+

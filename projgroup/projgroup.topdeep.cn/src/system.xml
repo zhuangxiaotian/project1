@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="system" namespace="/system" extends="default">
+		<action name="SystemAction" class="cn.topdeep.projgroup.action.system.SystemAction">
+			<result>/WEB-INF/jsp/system/system.jsp</result>
+		</action>
+    </package>
+</struts>

@@ -1,0 +1,121 @@
+/*div中的标题头*/
+div.title,div.top{
+	padding:0px 4px;
+}
+div.title a,div.top a,div.title span,div.top span{
+	background:#1f6cb4;
+	color:#fff;
+	font-size:16px;
+	font-weight:bold;
+	height:26px;
+	line-height:26px;
+	padding-left:5px;
+	text-align:left;
+	display:block;
+	text-decoration:none;
+}
+/*------------------------包裹table的外框-----------------------------------------*/
+div.content fieldset{
+	border:1px solid blue;
+}
+.mainContent{
+	width:841px;
+}
+/*------------------------div里的提交或翻页按钮包含按钮和输入框默认居右对齐------------------------------------------*/
+div.controlBtn{/*包含提交或继续或确认的按钮*/
+	width:95%;
+	text-align:left;
+	margin:0 auto;
+	margin-bottom:5px;
+} 
+div.controlBtn input{
+	width:auto;
+	color:blue;
+	cursor:pointer;
+}
+div.controlBtn .btn2{/*上一页下一页样式*/
+	height:22px;
+	line-height:22px;
+	cursor:pointer;
+	margin:5px 0px 0px 2px;
+	color:blue;
+}
+
+/*---------------------------------------------------------------*/
+
+
+
+div.footerButton{/*包含提交或继续或确认的按钮*/
+	width:95%;
+	text-align:left;
+	margin:0 auto;
+	margin-bottom:5px;
+} 
+div.footerButtonCenter{
+	text-align:center;
+}
+div.footerButton input{
+	width:auto;
+	color:blue;
+}
+.btn2{/*上一页下一页样式*/
+	height:22px;
+	line-height:22px;
+	cursor:pointer;
+	margin:5px 0px 0px 2px;
+	color:blue;
+}
+.jumpPageIndex{
+	position:relative;
+	bottom:-2px!important;bottom:-5px;
+	left:0px;
+	color:blue;
+	font-size:16px!important;font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+div input.jumpNavigate{/*GO*/
+	
+}
+.page_current{/*input number*/
+	font-size:16px;
+}
+
+div.footerButton input.none{
+	border:none;
+}
+/*------------------------包含在元素中的链接标签样式默认右对齐------------------------------------------*/
+div.innerA{
+	width:95%;
+	text-align:left;
+	margin:0 auto;
+	margin-bottom:5px;
+	padding:10px 0px;
+} 
+div.innerA a{
+	color:blue;
+}
+
+
+
+/*-----------------------------包含在元素中的下一页或确定按钮位置定位----------------------------*/
+.includeNextPage{position:relative;top:10px;}
+
+
+
+
+/*------------------------div里的密码输入框和按钮------------------------------------------*/
+.required{
+	width:200px;
+	margin-top:5px!important;
+	margin:0px;
+}
+.possword{
+	width:95%;
+	margin:0 auto;
+	text-align:center;
+}
+.possword input{
+	margin-bottom:5px;
+}
+

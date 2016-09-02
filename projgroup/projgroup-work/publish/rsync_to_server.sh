@@ -1,0 +1,1 @@
+rsync -czrtopg --progress /Users/niexin/project/source/projgroup/dist/ rsync://niexin@192.168.0.18/oa/

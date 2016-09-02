@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simpletd"/>
+    <constant name="struts.objectFactory.spring.autoWire" value="name"></constant>
+    <constant name="struts.enable.SlashesInActionNames" value="true"></constant>
+    
+    <package name="default" extends="struts-default">
+    
+   		<result-types>
+			<result-type name="json"
+				class="code.google.struts2jsonresult.JSONResult">
+				<param name="deepSerialize">true</param>
+				<param name="patterns">-*.class,-*.keyFieldNames,-*.keyFieldValues</param>
+			</result-type>
+		</result-types>
+    
+		<interceptors>
+			<interceptor name="usermenu" class="cn.topdeep.projgroup.interceptor.UserMenuInterceptor"></interceptor>
+			<interceptor name="authz" class="cn.topdeep.projgroup.interceptor.AuthzInterceptor"></interceptor>
+			<interceptor-stack name="defStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+			<interceptor-stack name="defaultInterceptor">
+				<interceptor-ref name="usermenu"></interceptor-ref>
+				<interceptor-ref name="defStack">
+					<param name="params.ordered">true</param>
+                	<param name="validation.validateAnnotatedMethodOnly">true</param>
+				</interceptor-ref>
+				<interceptor-ref name="authz"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+    	
+    	<default-interceptor-ref name="defaultInterceptor">
+    	
+    	</default-interceptor-ref>
+    
+    	<global-results>
+	        <result name="login" type="redirect">/Logon.action</result>
+	        <result name="noprivileges" type="redirectAction">/Logon.action</result>
+	        <result name="redirect" type="redirect">${redirectUrl}</result>
+	        <result name="clientRedirect">/WEB-INF/jsp/blank.jsp</result>
+			<result name="ajax" type="json">
+				<param name="target">jsonObj</param>
+			</result>
+        </global-results>
+    
+    	<action name="Logon" class="cn.topdeep.projgroup.action.system.Logon">
+    		<result name="input">/WEB-INF/jsp/system/Logon.jsp</result>
+    		<result type="redirectAction">
+				<param name="actionName">Index.action</param>
+				<param name="namespace">/home</param>
+			</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+    	</action>
+    	<action name="Logout" class="cn.topdeep.projgroup.action.system.Logon" method="logout">
+    	</action>
+    	
+		<action name="Index" >
+			<result type="redirectAction">home/Index</result>
+		</action>    	
+    	<action name="*/*" class="cn.topdeep.projgroup.action.{1}.{2}">
+    		<result name="input">/WEB-INF/jsp/{1}/{2}Input.jsp</result>
+    		<result name="success">/WEB-INF/jsp/{1}/{2}Success.jsp</result>
+    	</action>
+    </package>
+    
+    
+<!--    <include file="role.xml"/>-->
+<!--    <include file="user.xml"/>-->
+<!--	<include file="proj.xml"></include>-->
+<!--	<include file="personal.xml"></include>-->
+<!--	<include file="process.xml"></include>-->
+<!--	<include file="example.xml"></include>-->
+<!--	<include file="system.xml"></include>-->
+    <!-- Add packages here -->
+</struts>

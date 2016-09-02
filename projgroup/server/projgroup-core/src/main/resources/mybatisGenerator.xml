@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"[]>
+<generatorConfiguration>
+  <classPathEntry location="/Users/niexin/.m2/repository/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar" />
+  <classPathEntry location="/Users/niexin/project/tools/JavaTools/common-tools.jar" />
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <!-- Pagination -->
+    <plugin type="cn.topdeep.javatools.dao.MyBatisMySqlPlug">
+    </plugin>
+    <commentGenerator>
+      <property name="suppressDate" value="true" />
+    </commentGenerator>
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:MySQL://192.168.0.33:3306/oa_develop" userId="mysql_develop" password="mysql_develop">
+    </jdbcConnection>
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    <javaModelGenerator targetPackage="cn.topdeep.projgroup.entity.db" targetProject="../java">
+      <property name="enableSubPackages" value="false" />
+      <property name="trimStrings" value="true" />
+      <property name="constructorBased" value="true" />
+      <property name="rootClass" value="cn.topdeep.projgroup.entity.base.BaseEntity"/>
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="cn.topdeep.projgroup.entity.db" targetProject="../java">
+      <property name="enableSubPackages" value="false" />
+    </sqlMapGenerator>
+    <javaClientGenerator type="XMLMAPPER" targetPackage="cn.topdeep.projgroup.entity.db" targetProject="../java">
+      <property name="enableSubPackages" value="false" />
+    </javaClientGenerator>
+    <table schema="wechat_test" catalog="" tableName="T_CODE_BUILD" domainObjectName="CodeBuild">
+      <generatedKey column="BUILD_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_CODE_BUILD_LOG" domainObjectName="CodeBuildLog">
+      <generatedKey column="BUILD_LOG_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_CODE_BUILD_PROCEDURE" domainObjectName="CodeBuildProcedure">
+      <generatedKey column="BUILD_PROCEDURE_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_CODE_BUILD_PROPERTY" domainObjectName="CodeBuildProperty">
+      <generatedKey column="BUILD_PROPERTY_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_DEPART_MENT" domainObjectName="DepartMent">
+      <generatedKey column="DEPART_MENT_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_DEPART_MENT_USER" domainObjectName="DepartMentUser" />
+    <table schema="wechat_test" catalog="" tableName="T_FUNC_PARAMS" domainObjectName="FuncParams">
+      <generatedKey column="PARAM_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_FUNC_PROCEDURE" domainObjectName="FuncProcedure">
+      <generatedKey column="FUNC_PROCEDURE_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_FUNC_PROJECT" domainObjectName="FuncProject">
+      <generatedKey column="FUNC_PROJECT_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_FUNC_TEST" domainObjectName="FuncTest" />
+    <table schema="wechat_test" catalog="" tableName="T_IDENTITY" domainObjectName="Identity" />
+    <table schema="wechat_test" catalog="" tableName="T_ORMAPPING_PROJECT" domainObjectName="OrmappingProject" />
+    <table schema="wechat_test" catalog="" tableName="T_PROJECT" domainObjectName="Project">
+      <generatedKey column="PROJ_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_PROJECT_JOIN_USER" domainObjectName="ProjectJoinUser" />
+    <table schema="wechat_test" catalog="" tableName="T_ROLE" domainObjectName="Role">
+      <generatedKey column="ROLE_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_TEST_PARAM_VALUE" domainObjectName="TestParamValue" />
+    <table schema="wechat_test" catalog="" tableName="T_TEST_PROCEDURE" domainObjectName="TestProcedure">
+      <generatedKey column="TEST_PROCEDURE_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_USER" domainObjectName="User">
+      <generatedKey column="USER_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_WORK_LOG" domainObjectName="WorkLog">
+      <generatedKey column="WORK_LOG_ID" identity="true" sqlStatement="MySql" />
+    </table>
+    <table schema="wechat_test" catalog="" tableName="T_WORK_LOG_RELATIONSHIP_TASK" domainObjectName="WorkLogRelationshipTask" />
+  </context>
+</generatorConfiguration>

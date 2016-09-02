@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/jsp/master">
+	<excludes>
+		<pattern>/Logon.action</pattern>
+		<pattern>/home/Index.action</pattern>
+    </excludes> 
+<!--    <decorator name="mainAjax" page="mainAjax.jsp">-->
+<!--    	<pattern>/work/WorkLogEdit.action</pattern>-->
+<!--    	<pattern>/work/ProjEdit.action</pattern>-->
+<!--    	<pattern>/work/TaskEdit.action</pattern>-->
+<!--    </decorator>-->
+	<decorator name="main" page="main.jsp">
+		<pattern>/**/*.action</pattern>
+	</decorator>
+</decorators>
