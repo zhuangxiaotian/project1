@@ -22,14 +22,14 @@
 		<Arg>
 			<New class="org.apache.commons.dbcp.BasicDataSource">
 				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
-				<Set name="url">jdbc:mysql://localoracle:3306/egroup?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8</Set>
-				<Set name="username">egroup</Set>
-				<Set name="password">egroup</Set>
+				<Set name="url">jdbc:mysql://127.0.0.1:3306/oa_develop?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8</Set>
+				<Set name="username">root</Set>
+				<Set name="password">develop</Set>
 				<Set name="validationQuery">SELECT 1 FROM DUAL</Set>
 			</New>
 		</Arg>
 	</New>
-	<New id="jira" class="org.eclipse.jetty.plus.jndi.Resource">
+	<!--  <New id="jira" class="org.eclipse.jetty.plus.jndi.Resource">
 		<Arg></Arg>
 		<Arg>jdbc-jira</Arg>
 		<Arg>
@@ -42,4 +42,5 @@
 			</New>
 		</Arg>
 	</New>
+			-->
 </Configure>

@@ -53,13 +53,13 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 
-	<!-- jiraDb start -->
+	<!-- jiraDb start-->
 	<bean id="jiraDataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
 		<property name="jndiName"> 
 			<value>${jiradb.jndiname}</value> 
 		</property> 
 	</bean>
-	<!-- 
+	 <!-- 
 	<bean id="jiraDataSource" class="org.apache.commons.dbcp.BasicDataSource"        
         destroy-method="close">        
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />       
@@ -67,7 +67,8 @@
 	    <property name="username" value="mysql_develop" />       
 	    <property name="password" value="mysql_develop" />       
 	</bean>
-	 -->
+	-->
+	 
 	<bean id="jiraVendorProperties"
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="properties">
@@ -92,7 +93,8 @@
 		<property name="basePackage" value="cn.topdeep.projgroup.entity.jiradb, cn.topdeep.projgroup.entity.jiraview, cn.topdeep.projgroup.entity.base" />
 		<property name="sqlSessionFactoryBeanName" value="jiraSqlSessionFactory"></property>
 		<property name="nameGenerator" ref="topdeepBeanNameGenerator"></property>
-	</bean>
+	</bean> 
+
 	<!-- jiraDb end -->
 	
 	<bean id="topdeepBeanNameGenerator" class="cn.topdeep.projgroup.util.TopdeepBeanNameGenerator"></bean>

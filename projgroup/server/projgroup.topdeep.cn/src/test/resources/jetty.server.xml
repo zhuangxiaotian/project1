@@ -29,6 +29,7 @@
 			</New>
 		</Arg>
 	</New>
+	<!-- 
 	<New id="jira" class="org.eclipse.jetty.plus.jndi.Resource">
 		<Arg></Arg>
 		<Arg>jdbc-jira</Arg>
@@ -45,4 +46,5 @@
 			</New>
 		</Arg>
 	</New>
+	 -->
 </Configure>
